@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Yusuf",
+    "age": 16,
+    "email": "yusuf@gmail.com",
+    "phone": "01010101010",
+    "status": ["active", "inactive"],
+    "avatar": "https://i.pinimg.com/736x/bd/42/8e/bd428e6bb156d90045700dbf3e967c3e.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Ali",
+    "age": 20,
+    "email": "ali202@gmail.com",
+    "phone": "9208302933",
+    "status": ["active", "inactive"],
+    "avatar": "https://i.pinimg.com/736x/2e/4f/d3/2e4fd3fd8f2aff9c26b15c1f1c23b11e.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Salim",
+    "age": 14,
+    "email": "salimjon923@gmail.com",
+    "phone": "984103903",
+    "status": ["active", "inactive"],
+    "avatar": "https://i.pinimg.com/736x/75/60/30/756030e0031ce9d9458245e0d7e022a6.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Iso",
+    "age": 16,
+    "email": "iso_samadov09@gmail.com",
+    "phone": "914058600",
+    "status": ["active", "inactive"],
+    "avatar": "https://i.pinimg.com/736x/f6/b0/ab/f6b0ab09c29242f56ef25e17785ef1e4.jpg"
+  }
+]

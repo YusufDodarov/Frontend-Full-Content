@@ -1,0 +1,136 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.MainForm {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.MainForm input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.MainForm input[type="text"]:focus {
+  border-color: #4a90e2;
+}
+
+.btnAdd {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btnAdd:hover {
+  background-color: #357abd;
+}
+
+.ModalEdit {
+  border: none;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.FormEdit {
+  display: flex;
+  gap: 10px;
+}
+
+.FormEdit input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.FormEdit input[type="text"]:focus {
+  border-color: #4a90e2;
+}
+
+.btnEdit {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btnEdit:hover {
+  background-color: #218838;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.box div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.box h1 {
+  flex-grow: 1;
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.box button {
+  padding: 8px 15px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.box button:first-of-type {
+  background-color: #ffc107;
+  color: #fff;
+}
+
+.box button:first-of-type:hover {
+  background-color: #e0a800;
+}
+
+.box button:last-of-type {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.box button:last-of-type:hover {
+  background-color: #c82333;
+}
