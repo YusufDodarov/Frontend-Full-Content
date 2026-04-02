@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .root {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: 1fr 2fr 1fr;
+      }
+      header {
+        background-color: aquamarine;
+        grid-column: 1/-1;
+      }
+      .content {
+        background-color: #ef2121;
+        grid-column: 3/-1;
+      }
+      .menu {
+        background-color: #00ed9e;
+        grid-column: 1 / 3;
+        grid-row: 2;
+      }
+      footer {
+        background-color: #363434;
+        grid-column: 1/-1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="root">
+      <header>Header</header>
+      <main class="content">Content</main>
+      <nav class="menu">Main</nav>
+      <footer>Footer</footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "MyFont";
+  src: url("/2.Css/Css/12.Fonts/Fonts/font1/DripOctober-vm0JA.ttf");
+}
+@font-face {
+  font-family: "MyFont2";
+  src: url("/2.Css/Css/12.Fonts/Fonts/font2/Patterna-1jy4Z.ttf");
+}
+@font-face {
+  font-family: "MyFont3";
+  src: url("/2.Css/Css/12.Fonts/Fonts/font3/FlorisaPersonalUse-nRm84.otf");
+}
+h1 {
+  font-family: "MyFont";
+}
+h2 {
+  font-family: "MyFont2";
+}
+h3 {
+  font-family: "MyFont3";
+}

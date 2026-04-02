@@ -1,0 +1,34 @@
+.container {
+  display: grid;
+  /* grid-template-columns: 200px auto 200px; */
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: 2fr 1fr 3fr;
+
+  /* repeat */
+  /* grid-template-columns: repeat(3,1fr); */
+  /* grid-template-rows: repeat(3,2fr); */
+
+  /* row-gap: 20px; */
+  /* column-gap: 10px; */
+  grid-gap: 20px;
+}
+
+.container > div:nth-child(even) {
+  font-size: 2rem;
+  background-color: aqua;
+}
+.container > div:nth-child(odd) {
+  font-size: 2rem;
+  background-color: blue;
+  color: white;
+}
+
+.container > div:nth-child(1) {
+  grid-column: 3;
+  grid-row: 3;
+}
+
+.container > div:nth-child(6) {
+  grid-column: 1;
+  grid-row: 1;
+}

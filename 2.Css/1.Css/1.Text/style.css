@@ -1,0 +1,120 @@
+/* 🎨 ранги текст */
+.color {
+  color: red; /* ранги матнро тағйир медиҳад */
+}
+
+/* ↔️ ҷойгиркунии матн */
+.align {
+  text-align: center; /* left, right, center, justify */
+}
+
+/* ➖ underline, overline, line-through */
+.decoration {
+  text-decoration: underline; /* ё overline, line-through, none */
+}
+
+/* 🔠 тағйири ҳарфҳо */
+.transform {
+  text-transform: uppercase; /* lowercase, capitalize */
+}
+
+/* 📏 фосилаи ҳарф ва калима */
+.spacing {
+  letter-spacing: 5px; /* фосилаи байни ҳарфҳо */
+  word-spacing: 20px;  /* фосилаи байни калимаҳо */
+}
+.shadow {
+  text-shadow: 2px 2px 5px #f20000; /* x, y, blur, color */
+}
+.font {
+  font-family: Arial, "Times New Roman", sans-serif; /* интихоби шрифт */
+}
+.style {
+  font-style: italic; /* normal, italic, oblique */
+}
+.weight {
+  font-weight: bold; /* normal, bold, 100–900 */
+}
+.lineheight {
+  line-height: 2; /* фосилаи амудии байни хатҳо */
+}
+/* 🏷️ overflow - чӣ мешавад агар матн зиёд бошад */
+.overflow {
+  width: 200px;
+  white-space: nowrap;   /* матнро якхат нигоҳ медорад */
+  overflow: hidden;      /* матнро ки зиёд бошад, намоиш намедиҳад */
+  text-overflow: ellipsis; /* ... нишон медиҳад */
+}
+
+/* ⬜ white-space - фосилаҳо ва хатҳо */
+.white-space {
+  white-space: pre; /* ҳифз кардани фосила ва хатҳои нав */
+}
+
+/* ➖ hyphens - ҷудошавии калимаҳо */
+.hyphens {
+  width: 150px;
+  hyphens: auto; /* калимаҳо автоматӣ дар охири хат ҷудо мешаванд */
+}
+
+/* ↔️ direction - самти матн */
+.direction {
+  direction: rtl; /* left-to-right ё right-to-left */
+}
+
+/* ⬆️ vertical-align - росткунии матн нисбат ба хат */
+.vertical-align {
+  vertical-align: middle; /* baseline, top, bottom, sub, super */
+  border: 1px solid black;
+}
+
+/* 🔡 letter-case - тағйири ҳарфҳо */
+.letter-case {
+  text-transform: lowercase; /* uppercase, capitalize, none */
+}
+
+/* 📝 word-break - ҷудошавии калимаҳо */
+.word-break {
+  width: 150px;
+  word-break: break-all; /* break-word, keep-all */
+}
+
+/* ↕️ writing-mode - хатҳо амудӣ ё уфуқӣ */
+.writing-mode {
+  writing-mode: vertical-rl; /* horizontal-tb, vertical-rl, vertical-lr */
+}
+/* 🎨 Solid Color */
+.solid-color {
+  color: red; /* матн сурх мешавад */
+}
+
+/* 🌈 Gradient Text */
+.gradient-text {
+  background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+  -webkit-background-clip: text; /* фақат ба матн ба кор мебарем */
+  -webkit-text-fill-color: transparent; /* фонро матн нишон медиҳад */
+  font-size: 50px;
+}
+
+/* 🌑 Text Shadow */
+.shadow-text {
+  color: black;
+  text-shadow: 2px 2px 5px gray; /* x-offset, y-offset, blur, color */
+  font-size: 40px;
+}
+
+/* 🖊️ Text Stroke */
+.stroke-text {
+  color: white;
+  -webkit-text-stroke: 2px black; /* ғафсӣ ва ранги stroke */
+  font-size: 50px;
+  font-weight: bold;
+}
+
+/* 🔳 Outline / Transparent Text */
+.outline-text {
+  color: transparent;
+  -webkit-text-stroke: 2px blue; /* танҳо outline намоён */
+  font-size: 50px;
+  font-weight: bold;
+}

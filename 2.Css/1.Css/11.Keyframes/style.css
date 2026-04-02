@@ -1,0 +1,109 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Умумӣ барои ҳамаи блокҳо */
+.box {
+  width: 200px;
+  height: 60px;
+  background-color: #3498db;
+  color: #fff;
+  margin: 15px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-top: 200px;
+}
+
+/* Fade In */
+.fade-in {
+  animation: fadeIn 2s ease-in-out infinite alternate; /* давом, муддат, easing, такрор */
+}
+@keyframes fadeIn {
+  from { opacity: 0; }  /* оғоз бо пинҳонӣ */
+  to { opacity: 1; }    /* ба намоиш */
+}
+
+/* Slide Left */
+.slide-left {
+  animation: slideLeft 2s ease-in-out infinite alternate;
+}
+@keyframes slideLeft {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100px); }
+}
+
+/* Slide Right */
+.slide-right {
+  animation: slideRight 2s ease-in-out infinite alternate;
+}
+@keyframes slideRight {
+  from { transform: translateX(0); }
+  to { transform: translateX(100px); }
+}
+
+/* Bounce */
+.bounce {
+  animation: bounce 1s ease-in-out infinite;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-30px); }
+}
+
+/* Rotate */
+.rotate {
+  animation: rotate 2s linear infinite;
+}
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Scale */
+.scale {
+  animation: scaleAnim 1.5s ease-in-out infinite alternate;
+}
+@keyframes scaleAnim {
+  from { transform: scale(1); }
+  to { transform: scale(1.5); }
+}
+
+/* Color Change */
+.color-change {
+  animation: colorChange 3s linear infinite alternate;
+}
+@keyframes colorChange {
+  0% { background-color: #3498db; }
+  50% { background-color: #e74c3c; }
+  100% { background-color: #2ecc71; }
+}
+
+/* Pulse */
+.pulse {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Shake */
+.shake {
+  animation: shake 0.5s ease-in-out infinite;
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  50% { transform: translateX(10px); }
+  75% { transform: translateX(-10px); }
+}

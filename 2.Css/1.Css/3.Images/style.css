@@ -1,0 +1,11 @@
+.img {
+  background-image: url("https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/z/u/Zugpsitze_mountain.jpg?crop=0%2C214%2C3008%2C1579&wid=1200&hei=630&scl=2.506666666666667");
+  background-size: cover;
+  background-position: center;
+  width: 300px;
+  height: 200px;
+  overflow-y: scroll;
+}
+.highlight {
+  background-color: yellow;
+}

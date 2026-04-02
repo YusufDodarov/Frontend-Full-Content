@@ -1,0 +1,50 @@
+h1 {
+  color: blue;
+  transition: 0.7s ease-in-out;
+}
+h1:hover {
+  color: red;
+}
+
+h2 {
+  color: green;
+  transition: 0.7s ease-in-out;
+}
+h2:hover::before {
+  content: "Hello ";
+  color: orange;
+  font-size: 5px;
+}
+h2:hover::after {
+  content: "Hello ";
+  color: rebeccapurple;
+  font-size: 5px;
+}
+
+button:active {
+  background-color: aqua;
+}
+
+input[type="text"]:focus {
+  background-color: rgb(255, 0, 0);
+}
+
+ul li:first-child{
+    color: red;
+}
+
+ul li:last-child{
+    color: blue;
+}
+
+/* ul li:nth-child(3){
+    color: green;
+} */
+
+ul li:nth-child(even){
+    color: chocolate;
+}
+
+/* ul li:nth-child(odd){
+    color: green;
+} */

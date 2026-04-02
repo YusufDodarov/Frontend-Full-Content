@@ -1,0 +1,68 @@
+body {
+  background: #020024;
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+/*{
+  scrollbar-width: thin; 
+  scrollbar-color: #833ab4 #020024; 
+} */
+::-webkit-scrollbar {
+  width: 12px; /* ғафсӣ */
+  height: 12px; /* барои скролл горизонталӣ */
+}
+
+/* Ранги заминаи scrollbar */
+::-webkit-scrollbar-track {
+  background: #020024; /* пасзамина */
+  border-radius: 10px;
+}
+
+/* Қисме ки ҳаракат мекунад (thumb) */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #833ab4, #fd1d1d, #fcb045);
+  border-radius: 10px;  
+}
+
+.box {
+  /* background: linear-gradient(to right, blue, red); */
+  /* background: linear-gradient(to left, blue, red); */
+  /* background: linear-gradient(to top, blue, red); */
+  /* background: linear-gradient(to bottom, blue, red); */
+  width: 200px;
+  background: #833ab4;
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(253, 29, 29, 1) 50%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  height: 200px;
+  margin: 20px;
+}
+.box2 {
+  background: #3f5efb;
+  background: radial-gradient(
+    circle,
+    rgba(63, 94, 251, 1) 0%,
+    rgba(252, 70, 107, 1) 68%
+  );
+  width: 200px;
+  height: 200px;
+}
+
+h1 {
+  font-size: 72px;
+  background: #22c1c3;
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(253, 187, 45, 1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,39 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Умумӣ барои ҳамаи блокҳо */
+div {
+  padding: 15px;
+  margin: 10px 0;
+  border: 2px solid #3498db;
+  background-color: #ecf0f1;
+  width: 300px;
+  text-align: center;
+}
+
+/* Cursor намудиҳо */
+.cursor-default { cursor: default; }      /* Стандартӣ */
+.cursor-pointer { cursor: pointer; }      /* Даст барои кнопка */
+.cursor-crosshair { cursor: crosshair; }  /* Ҳадаф/минтақаи precise */
+.cursor-text { cursor: text; }            /* Барои ворид кардани матн */
+.cursor-wait { cursor: wait; }            /* Соат / сабр кунед */
+.cursor-help { cursor: help; }            /* Савол / кӯмак */
+.cursor-move { cursor: move; }            /* Ҳаракат додан */
+.cursor-not-allowed { cursor: not-allowed; } /* Мамнуъ */
+.cursor-progress { cursor: progress; }    /* Боркунӣ (progress) */
+.cursor-grab { cursor: grab; }            /* Гир */
+.cursor-grabbing { cursor: grabbing; }    /* Дар ҳолати гирифтан */
+.cursor-zoom-in { cursor: zoom-in; }      /* Зиёд кардан */
+.cursor-zoom-out { cursor: zoom-out; }    /* Кам кардан */
+.cursor-alias { cursor: alias; }          /* Алтернатива / нишон додани маълумот */
+.cursor-cell { cursor: cell; }            /* Ҳуҷайра */
+.cursor-vertical-text { cursor: vertical-text; } /* Матни амудӣ */
+.cursor-copy { cursor: copy; }            /* Нусха кардан */
+.cursor-none { cursor: none; }            /* Намоиши курсор нест */

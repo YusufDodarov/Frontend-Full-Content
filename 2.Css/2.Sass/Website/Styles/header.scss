@@ -1,0 +1,47 @@
+header {
+  @include Flex;
+  background-color: aliceblue;
+  ul {
+    list-style: none;
+    gap: 20px;
+    @include Flex;
+    li {
+      font-size: $sizeFontBase;
+      cursor: pointer;
+      a {
+        text-decoration: none;
+        font-size: $sizeFontBase;
+        transition: 0.8s ease-in-out;
+        color: black;
+        cursor: pointer;
+        &:hover {
+          color: orange;
+        }
+      }
+      u {
+        cursor: pointer;
+        color: $colorGreen;
+        font-size: $sizeFontBase;
+      }
+    }
+  }
+
+  h1 {
+    font-family: "Arial", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    span {
+      font-weight: 600;
+      color: $colorGreen;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  header {
+    @include Moblile;
+    ul {
+      @include Moblile;
+    }
+  }
+}

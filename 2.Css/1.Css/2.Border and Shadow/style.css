@@ -1,0 +1,86 @@
+/* Умумӣ барои body */
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+/* Заголовок */
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Border мисолҳо */
+div {
+  margin: 15px 0;
+  padding: 15px;
+  background-color: #fff;
+  width: 300px;
+  text-align: center;
+}
+
+/* Solid Border - хатти сахт */
+.border-solid {
+  border: 3px solid #3498db; /* ранг ва ғафсӣ */
+}
+
+/* Dashed Border - хаттасон */
+.border-dashed {
+  border: 3px dashed #e74c3c;
+}
+
+/* Dotted Border - нуқтаҳо */
+.border-dotted {
+  border: 3px dotted #2ecc71;
+}
+
+/* Double Border - дукарата */
+.border-double {
+  border: 6px double #9b59b6;
+}
+
+/* Groove Border - фосиладор/чуқур */
+.border-groove {
+  border: 6px groove #f1c40f;
+}
+
+/* Ridge Border - баландшуда */
+.border-ridge {
+  border: 6px ridge #e67e22;
+}
+
+/* Inset Border - дохилшуда */
+.border-inset {
+  border: 6px inset #1abc9c;
+}
+
+/* Outset Border - беруншуда */
+.border-outset {
+  border: 6px outset #34495e;
+}
+
+/* No Border */
+.border-none {
+  border: none;
+}
+
+/* Box Shadow мисолҳо */
+
+/* Кичик */
+.box-shadow-small {
+  border: 2px solid #ccc;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* x-offset, y-offset, blur, color */
+}
+
+/* Миёна */
+.box-shadow-medium {
+  border: 2px solid #ccc;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Калон */
+.box-shadow-large {
+  border: 2px solid #ccc;
+  box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.5);
+}

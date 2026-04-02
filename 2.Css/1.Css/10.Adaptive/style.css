@@ -1,0 +1,50 @@
+body {
+  background-color: aqua;
+}
+/* ҳолати одди сайт */
+@media (orientation: landscape) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+@media (max-width: 500px) and (max-height: 300px) {
+  body {
+    background-color: lightcoral;
+  }
+}
+
+/* not */
+/* @media not screen and (max-width: 200px) {
+  body {
+    background-color: yellow;
+  }
+} */
+
+/* дар як px иваз шудан ин кор мекунад! */
+/* @media (orientation: portrait) {
+  body {
+    background-color: #08b7f2;
+  }
+} */
+
+/* or */
+/* @media (max-width: 400px) or (max-height: 300px) {
+  body {
+    background-color: red;
+  }
+} */
+
+/* screen */
+/* @media screen and (max-width: 600px) and (max-height: 400px) {
+  body {
+    background-color: lightgreen;
+  }
+} */
+
+/* all */
+/* @media all {
+  body {
+    background-color: #ffff00;
+  }
+} */
