@@ -1,0 +1,37 @@
+useEffect — хуке мебошад, ки барои иҷро кардани амалҳои иловагӣ (side effects)
+истифода мешавад:
+1.гирифтани маълумот аз API
+2.кор бо localStorage
+3.тағйири document.title
+4.иҷро шудани код пас аз render
+exsample:
+useEffect(() => {
+  // коде, ки иҷро мешавад
+}, [dependencies])
+useEffect 2 чиз мегирад:
+1.callback функсия
+2.масив (dependencies)
+
+1️⃣ Функсия (callback)
+Ин функсия ҳамон кодест, ки бояд иҷро шавад.
+useEffect(() => {
+  console.log("Компонент рендер шуд");
+});
+2️⃣ Масиви dependencies (вобастагиҳо)
+Ин масив муайян мекунад, ки кай useEffect кор кунад.
+📌 1. Агар масив набошад
+useEffect(() => {
+  console.log("Ҳар дафъа render");
+},[update]);
+🔁 ҲАР ДАФЪА render → useEffect кор мекунад
+📌 2. Агар масив холӣ бошад []
+useEffect(() => {
+  console.log("Фақат 1 бор");
+}, []);
+✅ Фақат як бор, ҳангоми кушодани компонент
+(мисли componentDidMount)
+3.Ва дар охир ин return дар хук ки вақте корашро тамом кард сурат мегирад.
+useEffect(() => {
+  console.log("Ҳар дафъа render");
+  return ()=> console.log("goodBye!")
+},[update]);

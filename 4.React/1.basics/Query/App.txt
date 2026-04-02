@@ -1,0 +1,151 @@
+import axios from "axios";
+import React, { useRef, useState } from "react";
+import { useMutation, useQuery, useQueryClient } from "react-query";
+
+function App() {
+  const [input, setInput] = useState("");
+  const query = useQueryClient();
+  const [inputEdit, setInputEdit] = useState("");
+  const [editId, setEditid] = useState(null);
+  const dialog = useRef(null);
+
+  const { data, isLoading, isError, error } = useQuery({
+    queryKey: ["MY_API"],
+    queryFn: async () => {
+      const result = await axios.get(
+        `https://688e52a7a459d5566b14aa40.mockapi.io/status`
+      );
+      return result.data;
+    },
+  });
+  const addData = useMutation({
+    mutationFn: async (input) => {
+      const result = await axios.post(
+        `https://688e52a7a459d5566b14aa40.mockapi.io/status`,
+        {
+          title: input,
+          completed: false,
+        }
+      );
+      return result.data;
+    },
+    onSuccess: () => {
+      query.invalidateQueries({ queryKey: ["MY_API"] });
+      setInput("");
+    },
+  });
+
+  const deleteTask = useMutation({
+    mutationFn: async (id) => {
+      return await axios.delete(
+        `https://688e52a7a459d5566b14aa40.mockapi.io/status/${id}`
+      );
+    },
+    onSuccess: () => {
+      query.invalidateQueries({ queryKey: ["MY_API"] });
+    },
+  });
+
+  const editOpen = useMutation({
+    mutationFn: async ({ id, title }) => {
+      const result = await axios.put(
+        `https://688e52a7a459d5566b14aa40.mockapi.io/status/${id}`,
+        {
+          title,
+        }
+      );
+      return result.data;
+    },
+    onSuccess: () => {
+      query.invalidateQueries(
+        { queryKey: ["MY_API"] },
+        setInputEdit(""),
+        setEditid(null)
+      );
+    },
+  });
+
+  const compltedTask = useMutation({
+    mutationFn: async ({ id, completed }) => {
+      const result = await axios.put(
+        `https://688e52a7a459d5566b14aa40.mockapi.io/status/${id}`,
+        { completed }
+      );
+      return result.data;
+    },
+    onSuccess: () => {
+      query.invalidateQueries({ queryKey: ["MY_API"] });
+    },
+  });
+
+  const openEditDialog = (item) => {
+    setEditid(item.id);
+    setInputEdit(item.title);
+    dialog.current.showModal();
+  };
+
+  if (isError) return <h1>{error.message}</h1>;
+  if (isLoading) return <h1>Loading...</h1>;
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={input}
+        onChange={(event) => setInput(event.target.value)}
+      />
+      <button
+        className="w-20 h-10 cursor-pointer bg-amber-400"
+        onClick={() => {
+          if (input.trim() !== "") {
+            addData.mutate(input);
+          }
+        }}
+      >
+        Add
+      </button>
+      <div>
+        {data?.map((item) => (
+          <ul key={item.id}>
+            {item.completed ? <del>{item.title}</del> : <li>{item.title}</li>}
+            <button
+              onClick={() => {
+                deleteTask.mutate(item.id);
+              }}
+            >
+              Delete
+            </button>
+            <button onClick={() => openEditDialog(item)}>Edit</button>
+            <input
+              type="checkbox"
+              checked={item.completed}
+              onChange={() =>
+                compltedTask.mutate({ id: item.id, completed: !item.completed })
+              }
+            />
+          </ul>
+        ))}
+      </div>
+      <dialog ref={dialog}>
+        <input
+          type="text"
+          value={inputEdit}
+          onChange={(event) => setInputEdit(event.target.value)}
+        />
+        <button
+          onClick={() => {
+            if (inputEdit.trim() !== "") {
+              editOpen.mutate({ id: editId, title: inputEdit }),
+                dialog.current.close();
+            }
+          }}
+        >
+          Save
+        </button>
+        <button onClick={() => dialog.current.close()}>Cancel</button>
+      </dialog>
+    </div>
+  );
+}
+
+export default App;

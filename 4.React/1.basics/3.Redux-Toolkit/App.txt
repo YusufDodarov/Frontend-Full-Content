@@ -1,0 +1,15 @@
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { decrement, increment, reset } from "./Reducer/counter";
+function App() {
+  const myCounter = useSelector((store) => store.Counter.counter);
+  const dispatch = useDispatch();
+  return (
+    <div>
+      <p>{myCounter}</p>
+      <button className="w-15 h-8 bg-amber-400 m-1" onClick={() => dispatch(increment(3))}>+</button>
+      <button className="w-15 h-8 bg-amber-400 m-1" onClick={() => dispatch(decrement(100))}>-</button>
+      <button className="w-15 h-8 bg-amber-400 m-1" onClick={() => dispatch(reset())}>0</button>
+    </div>
+  );
+}

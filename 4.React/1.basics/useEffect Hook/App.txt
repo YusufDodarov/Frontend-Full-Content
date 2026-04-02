@@ -1,0 +1,31 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
+function Home() {
+  const [count, setcount] = useState(0);
+  console.log("initialization");
+  useEffect(() => {
+    let count = 0;
+    console.log("moutings");
+    let counter = setInterval(() => {
+      count += 1;
+      console.log(count);
+    }, 1000);
+    return () => {
+      clearInterval(counter);
+      console.log("unmouting");
+    };
+  }, []);
+  useEffect(() => {
+    console.log("updatings", count);
+  }, [count]);
+  return (
+    <>
+      <h1>Home</h1>
+      <p>{count}</p>
+      <button onClick={() => setcount(count + 1)}>+</button>
+      <Link to="/about"><p>about</p></Link>
+    </>
+  );
+}
+export default Home;

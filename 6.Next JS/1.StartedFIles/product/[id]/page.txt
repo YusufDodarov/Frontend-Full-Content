@@ -1,0 +1,31 @@
+import axios from "axios";
+import React from "react";
+import Link from "next/link";
+import { ArticleType } from "../type";
+interface Id {
+  params: { id: string };
+}
+export default async function Page({ params }: Id) {
+  const { id } = params;
+  const { data } = await axios.get<ArticleType>(
+    `http://localhost:3000/article/${id}`
+  );
+  const { data: data2 } = await axios.get<ArticleType[]>(
+    `http://localhost:3000/article`
+  );
+  return (
+    <div>
+      <p>{data.description}</p>
+      <hr />
+      {data2
+        .filter((item) => item.id !== data.id)
+        .map((item) => (
+          <div key={item.id}>
+            <Link href={`/${item.id}`}>
+              <h3>{item.title}</h3>
+            </Link>
+          </div>
+        ))}
+    </div>
+  );
+}

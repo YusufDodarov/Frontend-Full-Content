@@ -1,0 +1,23 @@
+useRef чист?
+👉 useRef як Hook дар React аст, ки ба ту имкон медиҳад чизеро нигоҳ дорӣ, 
+ки агар компонент аз нав рендер шавад, вай аз нав reset нашавад.
+Ду ҳолати маъмул:
+Барои гирифтани дастрасӣ ба DOM элемент (масалан <input>).
+Барои нигоҳ доштани қиммате, ки ҳангоми rerender иваз намешавад.
+Exsample:
+import { useRef, useState } from "react"
+export default function App() {
+  const [state,setState]=useState(0)
+  const ref=useRef(0)
+  const increment=()=>{
+    ref.current++
+  }
+  return (
+    <div>
+      <p>State: {state}</p>
+      <p>State with ref: {ref.current}</p>
+      <button onClick={increment}>ref</button>// пахш кунем тайғир намекунад то реакт рендер накунад!
+      <button onClick={()=>setState(state+1)}>state</button>дар инҷо стейт бо реф тайғир мекунанд
+    </div>
+  )
+}

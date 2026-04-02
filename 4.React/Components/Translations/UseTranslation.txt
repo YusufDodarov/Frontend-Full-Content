@@ -1,0 +1,16 @@
+// import { useTranslation } from "react-i18next";
+
+// export function Select() {
+//   const { t, i18n } = useTranslation();
+
+//   return (
+//     <div>
+//       <button onClick={() => i18n.changeLanguage("en")}>English</button>
+//       <button onClick={() => i18n.changeLanguage("ru")}>Русский</button>
+
+//       <h1>{t("hello")}</h1>
+//       <p>{t("lorem")}</p>
+//       <button>{t("Add")}</button>
+//     </div>
+//   );
+// }

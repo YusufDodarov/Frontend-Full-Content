@@ -1,0 +1,52 @@
+import { useAtom } from "jotai"
+import { Atom } from "./store/Atom"
+import {useRef, useState } from "react"
+
+export default function App() {
+  const [data,setData]=useAtom(Atom)
+  const [inputAdd,setInputAdd]=useState("")
+  const [inputEdit,setInputEdit]=useState("")
+  const dialog=useRef(null)
+  const [idx,setIdx]=useState(null)
+
+  return (
+    <div>
+      <input type="text" value={inputAdd} onChange={(ev)=>setInputAdd(ev.target.value)}/>
+      <button onClick={()=>{
+        if(inputAdd.trim()!==""){
+           setData((prevData)=>[...prevData,{id:Date.now(),title:inputAdd,completed:false}])
+           setInputAdd("")
+        }
+      }}>Add</button>
+
+      <div>
+        {data.filter(e=>e.title.toLowerCase().includes(inputAdd.toLowerCase().trim())).map(el=>{
+          return <div key={el.id}>
+            <h2 style={{textDecoration:el.completed?"line-through":""}}>{el.title}</h2>
+            <button onClick={()=>setData(data.filter(e=>e.id!==el.id))}>Delete</button>
+            <input type="checkbox" checked={el.completed} onChange={()=>setData(data.map(e=>e.id===el.id?{...e,completed:!e.completed}:e))} />
+            <button onClick={()=>{
+              setInputEdit(el.title)
+              setIdx(el.id)
+              dialog.current.showModal()
+            }}>Edit</button>
+          </div>
+        })}
+        <dialog ref={dialog}>
+          <input type="text" onChange={(e)=>setInputEdit(e.target.value)} value={inputEdit} />
+          <button onClick={()=>{
+            if(inputEdit.trim()!==""){
+              setData(prevData=>prevData.map(e=>e.id===idx?{...e,title:inputEdit}:e))
+              dialog.current.close()
+              setInputEdit("")
+            }
+          }}>Save</button>
+          <button onClick={()=>{
+            dialog.current.close(),
+            setInputEdit("")
+          }}>Cancel</button>
+        </dialog>
+      </div>
+    </div>
+  )
+}

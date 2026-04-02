@@ -1,0 +1,30 @@
+import { useEffect, useState } from "react";
+import useTodoStore from "./store/reducers/useTodoStore";
+
+export default function App() {
+  const [text, setText] = useState("");
+  const { todos, getData, addTodo, removeTodo } = useTodoStore();
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder="Навис..."
+      />
+      <button onClick={() => addTodo(text)}>Add</button>
+
+      {todos?.map((el) => (
+        <div key={el.id}>
+          {el.title}
+          <button onClick={() => removeTodo(el.id)}>Delete</button>
+        </div>
+      ))}
+    </div>
+  );
+}

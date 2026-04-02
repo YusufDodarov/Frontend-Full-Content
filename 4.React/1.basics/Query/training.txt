@@ -1,0 +1,79 @@
+React Query чӣ аст?
+React Query – ин китобхона (библиотека) барои идора кардани маълумотҳо аз сервер дар React аст.
+Мисоли одди.
+Ту маълумотро аз сервер мегирӣ (мисол: рӯйхати корбарон).
+Барои ҳар бор, ки компонент бор мешавад маълумотро ба сервер намефиристад, кеш 
+(cache,(Cache (кеш) – ҷои нигоҳдории муваққатӣ барои маълумот аст!
+Дар React Query ин чӣ маъно дорад:
+Маълумотро як бор аз сервер мегирӣ, сипас дар “кеш” нигоҳ медорад.
+Агар компонент дубора бор шавад, React Query маълумотро аз кеш мегирад, на аз сервер →
+ зудтар намоиш медиҳад.
+Обновити (refetch) ҳам мумкин аст:
+Агар ту хоҳӣ маълумотро навсозӣ кунӣ, React Query бе таваҷҷуҳи компонент дубора аз
+ сервер мекашад ва кеш-ро нав мекунад.
+Кеш-и React Query муддат дорад (default ~5 дақиқа), баъд автоматик озод мешавад.
+Мисол ба содатарин забон:
+Фардо ту рӯйхати корбаронро мегирӣ.
+Ҳангоми боркунии саҳифа дубора, React Query маълумотро аз кеш мегирад, на аз интернет → зудтар.
+Агар корбар "Refresh" занад, React Query аз сервер мегирад ва кеш-ро нав мекунад.)) 
+мекунад, ки зудтар нишон диҳад.
+
+
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
+import { QueryClient, QueryClientProvider } from "react-query";
+const newQuery = new QueryClient();
+createRoot(document.getElementById("root")).render(
+  <QueryClientProvider client={newQuery}>
+    <App />
+  </QueryClientProvider>
+);
+new QueryClient() → мо як объект сохтем, ки “менежери запросҳо”(админ)-яй.
+<QueryClientProvider client={newQuery}> → ҳамин объектро ба тамоми <App /> медиҳем, то ки ҳар куҷо useQuery истифода барем, кор кунад.
+Агар ҳамин Provider-а нагузорӣ, useQuery кор намекунад, чунки “клиент”-ро намебинад.
+
+import axios from "axios"; 
+import React from "react";
+import { useQuery } from "react-query";
+function Home() {
+  const { data, isLoading, isError, error } = useQuery({
+    queryKey: ["Hello World"],
+    queryFn: async () => {
+      const result = await axios.get(
+        `https://jsonplaceholder.typicode.com/posts`
+      );
+      return result.data;
+    },
+  });
+  if (isLoading) return <h1>Loading...</h1>;
+  if (isError) return <h1>Error is {error}</h1>;
+  return (
+    <div>
+      <ul>
+        {data?.map((item) => (
+          <li key={item.id}>{item.title}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+export default Home;
+Бо ҳамин hook мо запрос мекунем.
+У бармегардонад 4 чиз:
+data → маълумоти аз сервер овардашуда.
+isLoading → агар ҳоло запрос меравад.
+isError → агар хато шавад.
+error → худи хатогиро бармегардонад.
+2. queryKey: ["Hello World"] Ин номи уникалӣ барои запрос.
+Бо ҳамин react-query медонад, ки кадом cache-ро истифода барад.
+3. queryFn: async () => {...} Ин функсия чӣ тавр маълумотро биёрӣ.
+Мо аз axios.get(".../posts") истифода бурдем.
+return result.data → фақат списоки постҳоро бармегардонад.
+4. if (isLoading) ва if (isError)
+Агар ҳоло запрос меравад → Loading....
+Агар хатогӣ шавад → хатогиро нишон медиҳад.
+5. data?.map(...)
+Вақте маълумот биёяд → мо списокро map мекунем ва li месозем.
+?. (optional chaining) → яъне “агар data вуҷуд дошт, баъд map кун”. Барои пешгирӣ аз хатои undefined.

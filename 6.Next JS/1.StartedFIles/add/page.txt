@@ -1,0 +1,36 @@
+"use client";
+import axios from "axios";
+import { useState } from "react";
+
+export default function Page() {
+  const [input, setInput] = useState<string>("");
+  const [textArea, setTextArea] = useState<string>("");
+  const handleAdd = async () => {
+    try {
+      await axios.post(`http://localhost:5000/article`, {
+        title: input,
+        description: textArea,
+      });
+      setInput("");
+      setTextArea("");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  return (
+    <div>
+      <input
+        type="text"
+        onChange={(e) => setInput(e.target.value)}
+        value={input}
+        className="border-2"
+      />
+      <textarea
+        className="border-2"
+        onChange={(e) => setTextArea(e.target.value)}
+        value={textArea}
+      />
+      <button onClick={handleAdd}>Add</button>
+    </div>
+  );
+}

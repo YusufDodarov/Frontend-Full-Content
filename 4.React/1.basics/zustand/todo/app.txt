@@ -1,0 +1,37 @@
+import { useState } from "react";
+import useTodoStore from "./store/useTodoStore";
+
+function TodoList() {
+  const [text, setText] = useState("");
+  const { todos, addTodo, removeTodo } = useTodoStore();
+
+  const handleAdd = () => {
+    if (text.trim() === "") return;
+    addTodo(text);
+    setText("");
+  };
+
+  return (
+    <div>
+      <h2>Todo List</h2>
+
+      <input
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder="Todo навис"
+      />
+      <button onClick={handleAdd}>Илова</button>
+
+      <ul>
+        {todos.map((todo) => (
+          <li key={todo.id}>
+            {todo.text}
+            <button onClick={() => removeTodo(todo.id)}>❌</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default TodoList;

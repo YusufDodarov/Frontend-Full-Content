@@ -1,0 +1,25 @@
+import React, { useRef } from 'react'
+
+function App() {
+  const color=useRef(null)
+  const input=useRef(null)
+  
+  const ChangeColor=()=>{
+    if(color.current.style.backgroundColor==="green"){
+      color.current.style.backgroundColor="red"
+    }else{
+      color.current.style.backgroundColor="green"
+    }
+  }
+
+  const focus=()=> input.current.style.border="5px solid blue"
+  
+  return (
+    <div>
+      <button ref={color} style={{backgroundColor:"green",color:"while"}} onClick={ChangeColor}>Change Color</button>
+      <input ref={input} type="text" onClick={focus} />
+    </div>
+  )
+}
+
+export default App

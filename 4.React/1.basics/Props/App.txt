@@ -1,0 +1,26 @@
+import React from "react";
+export default function Home() {
+  let list_language = [
+    [["Js", "Ts"]],
+    [["Python", "C#", "C++"]],
+    [["Django", "React", "Vue"]],
+  ];
+  return (
+    <div>
+      {list_language.map((element) => {
+        return element.map((el) => {
+          return el.map((e, i) => {
+            return <ProductList key={i} language={e} />;
+          });
+        });
+      })}
+    </div>
+  );
+}
+function ProductList({ language }) {
+  return (
+    <div>
+      <p>{language}</p>
+    </div>
+  );
+}

@@ -1,0 +1,72 @@
+1️⃣ React Router DOM чист?
+React Router DOM — китобхона (library) барои сохтани
+навигация ва саҳифаҳо дар React SPA.
+Он иҷозат медиҳад: URL иваз шавад (/about, /apple/3) вале саҳифа reload нашавад танҳо компонентҳо
+ иваз шаванд
+2️⃣ Консепсияи асосӣ React Router бо 3 чиз кор мекунад: Router → идоракунандаи URL Route → қоида:
+ кадом URL → кадом компонент Navigation API → гузаштан байни саҳифаҳо
+3️⃣ Router чист? Router объектест, ки: URL-ро мешунавад route-ҳоро муқоиса мекунад компонентро 
+интихоб мекунад Дар версияи нав: createBrowserRouter() Ин: History API-и браузерро
+ истифода мебарад URL-и ҳақиқиро (/about) идора мекунад
+4️⃣ Route чист?
+Route = қоида
+Маъно:
+агар URL = /about → <About />
+5️⃣ Parent ва Child routes
+{
+  path: "/",
+  element: <Layout />,
+  children: [
+    { index: true, element: <Home /> },
+    { path: "about", element: <About /> }
+  ]
+}
+6️⃣ <Outlet /> чист?
+<Outlet /> — ҷои холӣ дар parent component
+ки child-route дар он рендер мешавад.
+Бе <Outlet />:
+❌ child ҳеҷ гоҳ намеояд
+7️⃣ index: true чист?
+{ index: true, element: <Home /> }
+Ин маъно дорад:
+вақте path = parent (/)
+бе ягон segment иловагӣ
+8️⃣ Dynamic routes (:id)
+{ path: "apple/:id", element: <Apple /> }
+:id = dynamic parameter
+URL:
+/apple/1
+9️⃣ useParams() чист?
+Hook барои гирифтани параметрҳо аз URL.
+const params = useParams();
+Барои:
+/apple/5
+params = { id: "5" }
+Ҳамеша string
+🔟 useLocation() чист?
+const location = useLocation();
+Бармегардонад:
+{
+  pathname: "/apple/5",
+  search: "",
+  hash: "",
+}
+Истифода: пайгирии route active menu analytics
+1️⃣1️⃣ Navigation
+<Link />
+<Link to="/about">About</Link>
+SPA navigation
+reload НЕ мекунад
+useNavigate()
+const navigate = useNavigate();
+navigate("/contact");
+навигация аз JS
+пас аз submit, login ва ғ.
+1️⃣2️⃣ Error route (*)
+{ path: "*", element: <Error /> }
+Ҳар URL-и номаълум → Error
+1️⃣3️⃣ React Router DOM чӣ НЕ мекунад?
+❌ data fetching автоматикӣ
+❌ auth management
+❌ state management
+(лекин API дорад барои ин)

@@ -1,0 +1,9 @@
+import { ArticleType } from "@/app/type";
+import React from "react";
+export default function Article({ title, id }: ArticleType) {
+  return (
+    <div>
+      <h1 key={id}>{title}</h1>
+    </div>
+  );
+}

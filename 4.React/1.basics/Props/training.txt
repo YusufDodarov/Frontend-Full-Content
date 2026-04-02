@@ -1,0 +1,42 @@
+Prop чист?
+Prop = маълумоте, ки аз як компонент ба дигаре фиристода мешавад.
+Аз parent → child меравад.
+Props readonly ҳастанд (child онро тағйир дода наметавонад).
+Prop = “property”, яъне хосият ё маълумоти дарунсохти компонент.
+Компонентҳо метавонанд маълумот қабул кунанд ва онро дар дохили UI истифода кунанд.
+Ин маълумотҳоро props меноманд.
+Ҳар боре ки props тағйир ёбанд, компонент рендер мешавад (ё бо memo рендер намешавад, агар ҳамон props бошад).
+for Exsample:
+App.jsx
+import React from "react";
+import Home from "./Home";
+function App() {
+  const name="Yusuf"
+  return (
+    <div>
+      <Home name={name} />
+    </div>
+  );
+}
+export default App;
+Home.jsx
+import React from "react";
+function Home({name}) {
+  return (
+    <div>
+      <p>Name: {name}</p>
+    </div>
+  );
+}
+export default Home;
+
+second way
+import React from "react";
+function Home(props) {
+  return (
+    <div>
+      <p>{props.name}</p>
+    </div>
+  );
+}
+export default Home;

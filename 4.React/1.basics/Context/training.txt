@@ -1,0 +1,71 @@
+Context дар React — ин як механизмест, ки иҷозат медиҳад маълумотро байни компонентҳо 
+бидуни props паҳн кунем. Дар асос барои мудирияти стейтҳо истифода мешавад ки стейтҳои 
+глобали созем барои мисол:
+1.user (логиншуда ё не)
+2.theme (dark / light)
+3.language
+4.settings 
+
+exsample Бе истифодаи UseContext:
+App.jsx
+import React, { useState } from "react";
+import ComponentsA from "./Components/ComponentsA";
+function App() {
+  const [state, SetState] = useState("Yusuf");
+  return (
+    <div className="p-1"><ComponentsA states={state} setStates={SetState} /></div>
+  );
+}
+export default App;
+
+ComponentsA.jsx
+import React from 'react'
+import ComponentsB from './ComponentsB';
+function ComponentsA({states, setStates}) {
+  return (
+    <div className="border-2 border-solid p-15 ">
+      <h1>ComponentsA</h1>
+      <p>Hello {states}</p>
+      <ComponentsB states={states} setStates={setStates} />
+    </div>
+  );
+}
+export default ComponentsA
+
+ComponentsB.jsx
+import React from "react";
+import ComponentsC from "./ComponentsC";
+function ComponentsB({ states, setStates }) {
+  return (
+    <div className="border-2 border-solid p-15">
+      <h1>Components B</h1>
+      <ComponentsC states={states} setStates={setStates} />
+    </div>
+  );
+}
+export default ComponentsB;
+
+ComponentsC.jsx
+import React from "react";
+import ComponentsD from "./ComponentsD";
+function ComponentsC({ states, setStates }) {
+  return (
+    <div className="border-2 border-solid p-15">
+      <h1>ComponentsC</h1>
+      <ComponentsD states={states} setStates={setStates} />
+    </div>
+  );
+}
+export default ComponentsC;
+
+ComponentsD.jsx
+import React from "react";
+function ComponentsD({ states, setStates }) {
+  return (
+    <div className="border-2 border-solid p-15">
+      <h1>ComponentsD</h1>
+      <p>Bye {states}</p>
+    </div>
+  );
+}
+export default ComponentsD;

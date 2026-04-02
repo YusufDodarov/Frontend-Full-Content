@@ -1,0 +1,12 @@
+React.lazy ба шумо имкон медиҳад, ки компонентҳоро танҳо вақте зарур шуд бор кунед, 
+на ҳамон вақт, ки саҳифа пурра рендер мешавад.
+Ин барои сайти калон ва тезтар кардани боркунӣ хеле муфид аст.
+Компонентҳои калон ё кам истифода шударо бо lazy бор мекунем ва ҳангоми лозим шудан 
+динамикӣ бор мешаванд.
+// import React, { Suspense, lazy } from 'react';
+// const Layout = lazy(() => import('./Layout'));
+
+const router=createBrowsRouter([
+    path: "/",
+    element:<Suspense fallback={<div>Loading...</div>}><Layout/></Suspense>
+])

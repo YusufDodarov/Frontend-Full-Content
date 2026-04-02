@@ -1,0 +1,26 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./Pages/Home";
+import Error from "./Pages/Error";
+import About from "./Pages/About";
+import Contact from "./Pages/Contact";
+import Layout from "./Layouts/layout";
+import Apple from "./Components/apple";
+
+function App() {
+  const root = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        { index: true, element: <Home /> },
+        { path: "about", element: <About /> },
+        { path: "apple", element: <Apple /> },
+        { path: "apple/:id", element: <Apple /> },
+        { path: "contact", element: <Contact /> },
+        { path: "*", element: <Error /> },
+      ],
+    },
+  ]);
+  return <RouterProvider router={root} />;
+}
+export default App;

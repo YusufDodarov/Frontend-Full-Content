@@ -1,0 +1,30 @@
+import React, { createContext, useContext, useState } from 'react'
+export const context=createContext(null)
+function App() {
+  const [state,setState]=useState(0)
+  return (
+    <div>
+      <context.Provider value={{state,setState}}>
+        <Chidlren />
+        <Chidlren2 />
+      </context.Provider>
+    </div>
+  )
+}
+
+export default App
+
+function Chidlren(){
+  const {state,setState}=useContext(context)
+  return <>
+    <p>{state}</p>// global state
+    <button onClick={()=>setState(state+1)}>+</button>
+  </>
+}
+
+function Chidlren2(){
+  const {state,setState}=useContext(context)
+  return <>
+    <button onClick={()=>setState(state-1)}>-</button>
+  </>
+}

@@ -1,0 +1,71 @@
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import './App.css'
+
+function App() {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+  return (
+    <div>
+      <div className="flex justify-evenly gap-4 pl-10 pr-19">
+        <div data-aos="fade-up" className="bg-amber-200 w-250 h-60 mt-10"></div>
+        <div
+          data-aos="fade-down"
+          className="bg-amber-200 w-250 h-60 mt-10"
+        ></div>
+        <div
+          data-aos="fade-right"
+          className="bg-amber-200 w-250 h-60 mt-10"
+        ></div>
+        <div
+          data-aos="fade-left"
+          className="bg-amber-200 w-250 h-60 mt-10"
+        ></div>
+      </div>
+      <h1 data-aos="fade-up-right">Hello World</h1>
+      <p data-aos="fade-up-left">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat
+        deserunt labore quae dicta expedita optio vero saepe impedit? Doloremque
+        odio ipsum molestias error nisi nemo vitae architecto eligendi, est
+        laudantium.
+      </p>
+      <h1 className="text-focus-in">Hello Gays</h1>
+      <div data-aos="fade-up" data-aos-duration="3000">
+        Different settings examples
+      </div>
+    </div>
+  );
+}
+
+export default App;
+
+.text-focus-in {
+  -webkit-animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: text-focus-in 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}

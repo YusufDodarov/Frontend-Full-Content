@@ -1,0 +1,18 @@
+import Article from "@/Components/Article";
+import axios from "axios";
+import React from "react";
+import { ArticleType } from "../type";
+import Link from "next/link";
+
+export default async function page() {
+  const { data } = await axios(`http://localhost:3000/article`);
+  return (
+    <div>
+      {data.map((e: ArticleType) => (
+        <Link key={e.id} href={`/product/${e.id}`}>
+          <Article {...e} />
+        </Link>
+      ))}
+    </div>
+  );
+}

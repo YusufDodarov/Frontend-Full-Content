@@ -1,0 +1,70 @@
+app/layout.tsx
+1.Page Main
+import { Metadata } from "next";
+export const metadata: Metadata = {
+  icons: {
+    icon: "next.png",
+  },
+  title: "Next Js",
+};
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  );
+}
+
+2.Page Errors
+app/not-found.tsx
+export default function notfound() {
+  return (
+    <div>
+      <h1>Not found</h1>
+    </div>
+  );
+}
+
+3.(Store) For all page
+1.product
+product/page
+previous
+
+2.product/[id]/page
+import notfound from "@/app/not-found";
+import React from "react";
+interface IDType {
+  params: Promise<{ id: number }>;
+  searchParams: Promise<{}>;
+}
+export default async function page(props: IDType) {
+  const { id } = await props.params;
+  if (id >= 1000) {
+    return notfound();
+  }
+  return (
+    <div>
+      <h1>id: {id}</h1>
+    </div>
+  );
+}
+
+3.notfound
+product/not-found.tsx
+previous
+
+1.AboutPage
+1.about/layout.tsx
+previous
+
+2.about/page.tsx
+previous
+
+
+
+
+
